@@ -9,8 +9,8 @@ public class Coin : MonoBehaviour {
     void Start () {
 
         coin.GetComponent<ParticleSystem>();
-	
-	}
+
+    }
 	
 	// Update is called once per frame
 	void Update () {

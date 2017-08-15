@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class soundmanager : MonoBehaviour {
 
-    public static AudioSource audio;
+    private AudioSource audio;
 
     public static bool prendido = false;
 
 	// Use this for initialization
 	void Start () {
+
+        
 
         audio = GetComponent<AudioSource>();
 

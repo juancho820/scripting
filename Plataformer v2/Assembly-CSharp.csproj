@@ -58,11 +58,13 @@
      <Compile Include="Assets\Scripts\passlvl.cs" />
      <Compile Include="Assets\Scripts\pause.cs" />
      <Compile Include="Assets\Scripts\platformfall.cs" />
+     <Compile Include="Assets\Scripts\Resety.cs" />
      <Compile Include="Assets\Scripts\scoremanager.cs" />
      <Compile Include="Assets\Scripts\Simpleplatformcontroller.cs" />
      <Compile Include="Assets\Scripts\soundmanager.cs" />
      <Compile Include="Assets\Scripts\Spawncoins.cs" />
      <Compile Include="Assets\Scripts\Spawnmanager.cs" />
+     <Compile Include="Assets\Scripts\startmusic.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

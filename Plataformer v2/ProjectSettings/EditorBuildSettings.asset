@@ -13,13 +13,16 @@ EditorBuildSettings:
     guid: b5a62cb8eb390ca45bc9067bbc23477d
   - enabled: 1
     path: Assets/Levels/Lvl 2.unity
-    guid: 1648431a742625541a810b0c51e0c7cf
+    guid: a212317d88dce924b81491d737d8d07d
   - enabled: 1
     path: Assets/Levels/Lvl 3.unity
-    guid: f3fdf50685cd6ca49bc964691228a0e1
+    guid: c45f88b0a9ae3cf419c64d8226d8d10c
   - enabled: 1
     path: Assets/Levels/Lvl 4.unity
-    guid: a71923b82e270d04fa26c07914278f37
+    guid: 73c372f3dd020bb47b96e47577a80507
+  - enabled: 1
+    path: Assets/Levels/Win.unity
+    guid: 93cf0af0d33ede245b64681c1e68f723
   - enabled: 1
     path: Assets/Levels/Game Over.unity
     guid: 308423806fad8e64f8f33db66abf8a33

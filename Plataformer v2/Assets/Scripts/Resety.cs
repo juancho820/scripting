@@ -1,16 +1,18 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class LvLloader : MonoBehaviour {
+public class Resety : MonoBehaviour {
 
     public string lvltoload;
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update()
+    {
 
         if (Input.GetMouseButtonUp(0))
         {
-            
+
             OnMouseUp();
         }
 
@@ -18,7 +20,6 @@ public class LvLloader : MonoBehaviour {
 
     private void OnMouseUp()
     {
-        startmusic.prendidomusica = true;
         Application.LoadLevel(lvltoload);
     }
 }

@@ -27,6 +27,7 @@ public class livesmanager : MonoBehaviour {
         if (lifes <= 0)
         {
             Application.LoadLevel("Game Over");
+            startmusic.apagadomusica = true;
             lifes = 3;
             scoremanager.score = 0;
         }
