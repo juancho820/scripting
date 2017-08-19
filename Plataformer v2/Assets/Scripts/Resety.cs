@@ -7,6 +7,11 @@ public class Resety : MonoBehaviour {
     public string lvltoload;
 
     // Update is called once per frame
+
+    void Start()
+    {
+        startmusic.apagadomusica = true;
+    }
     void Update()
     {
 
