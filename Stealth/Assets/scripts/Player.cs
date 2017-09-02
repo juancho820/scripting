@@ -100,8 +100,10 @@ public class Player : MonoBehaviour {
     public void congelar()
     {
         congActivado = true;
-        Cooldown.tiempodeCooldown = 5;
+        Cooldown.tiempodeCooldown = 30;
+        Cooldown.moveAgain = 5;
         Cooldown.activado = true;
         Guard.pararguardias = true;
+        Guard2.pararguardias = true;
     }
 }

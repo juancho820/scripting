@@ -16,6 +16,7 @@ public class Guard2 : MonoBehaviour {
     public Light spotlight;
     public float viewDistance;
     public LayerMask viewMask;
+    public static bool pararguardias;
 
     float viewAngle;
     float playerVisibleTimer;
@@ -41,7 +42,7 @@ public class Guard2 : MonoBehaviour {
                 followTime = 5;
             }
         }
-        if (CanSeePlayer())
+        if (CanSeePlayer() && pararguardias == false)
         {
             playerVisibleTimer += Time.deltaTime;
             if (playerVisibleTimer >= timeToSpotPlayer)
@@ -50,7 +51,7 @@ public class Guard2 : MonoBehaviour {
                 transform.Translate(Vector3.forward * speed * Time.deltaTime);
             }
         }
-        if (Guard3.alerta == false)
+        else
         {
             playerVisibleTimer -= Time.deltaTime;
             transform.Rotate(Vector3.up* rotSpeed * Time.deltaTime);
