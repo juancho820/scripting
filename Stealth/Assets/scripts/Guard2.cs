@@ -50,7 +50,7 @@ public class Guard2 : MonoBehaviour {
                 transform.Translate(Vector3.forward * speed * Time.deltaTime);
             }
         }
-        else
+        if (Guard3.alerta == false)
         {
             playerVisibleTimer -= Time.deltaTime;
             transform.Rotate(Vector3.up* rotSpeed * Time.deltaTime);

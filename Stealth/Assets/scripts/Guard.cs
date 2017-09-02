@@ -15,6 +15,7 @@ public class Guard : MonoBehaviour {
     public float viewDistance;
     public LayerMask viewMask;
     public bool followpath = true;
+    public static bool pararguardias;
 
     float viewAngle;
     float playerVisibleTimer;
@@ -41,20 +42,21 @@ public class Guard : MonoBehaviour {
 
     void Update()
     {
-        if (CanSeePlayer())
-        {
-            playerVisibleTimer += Time.deltaTime;
-            StopAllCoroutines();
-            transform.LookAt(player);
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        }
-        else
-        {
-            playerVisibleTimer -= Time.deltaTime;
-        }
-        playerVisibleTimer = Mathf.Clamp(playerVisibleTimer,0, timeToSpotPlayer);
-        spotlight.color = Color.Lerp(originalSpotlightColour, Color.red, playerVisibleTimer/timeToSpotPlayer);
+            if (CanSeePlayer() && pararguardias == false)
+            {
+                playerVisibleTimer += Time.deltaTime;
+                StopAllCoroutines();
+                transform.LookAt(player);
+                transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            }
+            else
+            {
+                playerVisibleTimer -= Time.deltaTime;
 
+            }
+            playerVisibleTimer = Mathf.Clamp(playerVisibleTimer, 0, timeToSpotPlayer);
+            spotlight.color = Color.Lerp(originalSpotlightColour, Color.red, playerVisibleTimer / timeToSpotPlayer);
+       
         //if (playerVisibleTimer >= timeToSpotPlayer)
         //{
         //    if (OnGuardHasSpottedPlayer != null)

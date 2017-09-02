@@ -51,13 +51,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\scripts\Cooldown.cs" />
      <Compile Include="Assets\scripts\GameUI.cs" />
      <Compile Include="Assets\scripts\Guard.cs" />
      <Compile Include="Assets\scripts\Guard2.cs" />
      <Compile Include="Assets\scripts\Guard3.cs" />
-     <Compile Include="Assets\scripts\items.cs" />
      <Compile Include="Assets\scripts\llaves.cs" />
      <Compile Include="Assets\scripts\Player.cs" />
+     <Compile Include="Assets\scripts\ScoreManager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

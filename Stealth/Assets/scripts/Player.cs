@@ -10,6 +10,8 @@ public class Player : MonoBehaviour {
     public float smoothMoveTime = .1f;
     public float turnSpeed = 8;
 
+    public static bool congActivado;
+
     float angle;
     float smoothInputMagnitude;
     float smoothMoveVelocity;
@@ -41,11 +43,23 @@ public class Player : MonoBehaviour {
         angle = Mathf.LerpAngle(angle, targetAngle, Time.deltaTime * turnSpeed *inputMagnitude);
 
         velocity = transform.forward * moveSpeed * smoothInputMagnitude;
-	}
+
+        if (Input.GetKeyDown("space"))
+        {
+            if (congActivado == false)
+            {
+                congelar();
+            }
+            else
+            {
+                Debug.Log("Esta en cooldown");
+            }
+        }
+    }
 
     void OnTriggerEnter(Collider hitCollider)
     {
-            if (hitCollider.tag == "Finish" && items.llaves == 3)
+            if (hitCollider.tag == "Finish" && ScoreManager.Instance.CurrentScore == 3)
             {
                 Disable();
                 if (OnReachedEndOfLevel != null)
@@ -62,7 +76,7 @@ public class Player : MonoBehaviour {
         }
         if(collision.gameObject.tag == "llave")
         {
-            items.llaves += 1;
+            ScoreManager.Instance.IncreaseScore();
         }
     }
 
@@ -81,5 +95,13 @@ public class Player : MonoBehaviour {
     void OnDestroy()
     {
         Guard.OnGuardHasSpottedPlayer -= Disable;
+    }
+
+    public void congelar()
+    {
+        congActivado = true;
+        Cooldown.tiempodeCooldown = 5;
+        Cooldown.activado = true;
+        Guard.pararguardias = true;
     }
 }
