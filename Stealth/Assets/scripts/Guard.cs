@@ -43,17 +43,13 @@ public class Guard : MonoBehaviour {
 
     void Update()
     {
-            if (CanSeePlayer())
-            {
-                if (pararguardias == false)
+            if (CanSeePlayer() && pararguardias == false)  
                 {
                     playerVisibleTimer += Time.deltaTime;
                     StopAllCoroutines();
                     transform.LookAt(player);
                     transform.Translate(Vector3.forward * speed * Time.deltaTime);
                 }
-
-            }
             else
             {
                 playerVisibleTimer -= Time.deltaTime;
