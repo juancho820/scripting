@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class llaves : MonoBehaviour {
 
+    public float rotSpeed = 10;
+
+    void Update()
+    {
+        transform.Rotate(Vector3.up * rotSpeed * Time.deltaTime);
+
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            Player.llaves.Push(gameObject);
         }
     }
 }

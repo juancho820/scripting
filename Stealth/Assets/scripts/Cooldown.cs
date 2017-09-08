@@ -21,7 +21,7 @@ public class Cooldown : MonoBehaviour {
     void Update()
     {
 
-        text.text = "cooldown:" + tiempodeCooldown;
+        text.text = "cooldown:" + Mathf.Round(tiempodeCooldown);
 
         if (activado == true)
         {

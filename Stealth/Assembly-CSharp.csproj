@@ -59,6 +59,7 @@
      <Compile Include="Assets\scripts\llaves.cs" />
      <Compile Include="Assets\scripts\Player.cs" />
      <Compile Include="Assets\scripts\ScoreManager.cs" />
+     <None Include="Assets\Models\Key\readME keys.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

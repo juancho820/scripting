@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    public static event System.Action NotFinish;
+
     public event System.Action OnReachedEndOfLevel;
 
     public float moveSpeed = 7;
@@ -11,6 +13,8 @@ public class Player : MonoBehaviour {
     public float turnSpeed = 8;
 
     public static bool congActivado;
+
+    public static Stack<GameObject> llaves = new Stack<GameObject>(3);
 
     float angle;
     float smoothInputMagnitude;
@@ -20,13 +24,20 @@ public class Player : MonoBehaviour {
     new Rigidbody rigidbody;
     bool disabled;
 
-	// Use this for initialization
-	void Start () {
+    public GameObject llave1;
+    public GameObject llave2;
+    public GameObject llave3;
+
+    // Use this for initialization
+    void Start () {
 
         rigidbody = GetComponent<Rigidbody>();
         Guard.OnGuardHasSpottedPlayer += Disable;
-		
-	}
+        llave1 = GameObject.Find("Llave1");
+        llave2 = GameObject.Find("Llave2");
+        llave3 = GameObject.Find("Llave3");
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -59,6 +70,12 @@ public class Player : MonoBehaviour {
 
     void OnTriggerEnter(Collider hitCollider)
     {
+
+        GameObject[] Array = new GameObject[3];
+        llaves.CopyTo(Array, 0);
+
+        if (Array[0].Equals(llave3) && Array[1].Equals(llave2) && Array[2].Equals(llave1))
+        {
             if (hitCollider.tag == "Finish" && ScoreManager.Instance.CurrentScore == 3)
             {
                 Disable();
@@ -67,6 +84,21 @@ public class Player : MonoBehaviour {
                     OnReachedEndOfLevel();
                 }
             }
+            Debug.Log("Ganaste");
+        }
+        else
+        {
+            Disable();
+            if (NotFinish != null)
+            {
+                NotFinish();
+            }
+        }
+            foreach (GameObject a in llaves)
+        {
+            Debug.Log(a.ToString());
+        }
+
     }
     void OnCollisionEnter(Collision collision)
     {
