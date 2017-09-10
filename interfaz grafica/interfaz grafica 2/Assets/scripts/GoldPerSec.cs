@@ -18,7 +18,7 @@ public class GoldPerSec : MonoBehaviour {
     {
         if (click.clickeado == true)
         {
-            gpsDisplay.text = GetGoldPerSec() + click.goldperclick + " gold/sec";
+            gpsDisplay.text = GetGoldPerSec() + click.goldperclick + " gold/sec" + "\n +gold/click";
         }
         else
         {
