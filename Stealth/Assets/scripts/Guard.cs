@@ -10,7 +10,9 @@ public class Guard : MonoBehaviour {
     public float waitTime = .3f;
     public float turnSpeed = 90;
     public float timeToSpotPlayer = .5f;
-    
+    public float rotSpeed = 10f;
+    public bool Seen = false;
+
 
     public Light spotlight;
     public float viewDistance;
@@ -53,7 +55,11 @@ public class Guard : MonoBehaviour {
             else
             {
                 playerVisibleTimer -= Time.deltaTime;
+                if(Seen == true)
+            {
+                transform.Rotate(Vector3.up * rotSpeed * Time.deltaTime);
             }
+        }
             playerVisibleTimer = Mathf.Clamp(playerVisibleTimer, 0, timeToSpotPlayer);
             spotlight.color = Color.Lerp(originalSpotlightColour, Color.red, playerVisibleTimer / timeToSpotPlayer);
        
@@ -76,6 +82,7 @@ public class Guard : MonoBehaviour {
             {
                 if (!Physics.Linecast(transform.position, player.position, viewMask))
                 {
+                    Seen = true;
                     return true;
                 }
             }
@@ -102,6 +109,7 @@ public class Guard : MonoBehaviour {
             }
             yield return null;
         }
+        
     }
 
     IEnumerator TurnToFace(Vector3 lookTarget)

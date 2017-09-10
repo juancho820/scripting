@@ -1,4 +1,5 @@
 sceneSetups:
-- path: Assets/Levels/Menu.unity
+- path: C:/Users/EQUIPO/Documents/GitHub/Taller-V/Super nombre iraqui/Assets/Scenes/Main
+    Menu.unity
   isLoaded: 1
   isActive: 1
