@@ -26,7 +26,7 @@ public class Cooldown : MonoBehaviour {
         if (activado == true)
         {
 
-            tiempodeCooldown -= Time.deltaTime;
+            tiempodeCooldown -= Time.fixedDeltaTime;
             moveAgain -= Time.deltaTime;
 
             if (tiempodeCooldown <= 0)

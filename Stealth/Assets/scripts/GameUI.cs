@@ -11,6 +11,7 @@ public class GameUI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        DontDestroyOnLoad(this);
         Guard.OnGuardHasSpottedPlayer += ShowGameLoseUI;
         Guard2.OnGuardHasSpottedPlayer += ShowGameLoseUI;
         Player.NotFinish += ShowGameLoseUI;
@@ -25,7 +26,9 @@ public class GameUI : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene("stealth");
+                Time.timeScale = 1;
+                DontShowGameLoseUI();
             }
         }
 	}
@@ -39,6 +42,10 @@ public class GameUI : MonoBehaviour {
     {
         OnGameOver(gameLoseUI);
     }
+    void DontShowGameLoseUI()
+    {
+        OnGameOver2(gameLoseUI);
+    }
 
     void OnGameOver(GameObject gameOverUI)
     {
@@ -46,5 +53,10 @@ public class GameUI : MonoBehaviour {
         gameIsOver = true;
         Guard.OnGuardHasSpottedPlayer -= ShowGameLoseUI;
         FindObjectOfType<Player>().OnReachedEndOfLevel -= ShowGameWinUI;
+    }
+    void OnGameOver2(GameObject gameOverUI)
+    {
+        gameOverUI.SetActive(false);
+        gameIsOver = false;
     }
 }

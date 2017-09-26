@@ -55,17 +55,22 @@ public class Player : MonoBehaviour {
 
         velocity = transform.forward * moveSpeed * smoothInputMagnitude;
 
-        if (Input.GetKeyDown("space"))
+
+        if (disabled == false)
         {
-            if (congActivado == false)
+            if (Input.GetKeyDown("space"))
             {
-                congelar();
-            }
-            else
-            {
-                Debug.Log("Esta en cooldown");
+                if (congActivado == false)
+                {
+                    congelar();
+                }
+                else
+                {
+                    Debug.Log("Esta en cooldown");
+                }
             }
         }
+        
     }
 
     void OnTriggerEnter(Collider hitCollider)
@@ -105,6 +110,7 @@ public class Player : MonoBehaviour {
         if (collision.gameObject.tag == "Enemy")
         {
             Disable();
+            Time.timeScale = 0;
         }
         if(collision.gameObject.tag == "llave")
         {
