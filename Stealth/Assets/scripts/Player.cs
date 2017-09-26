@@ -58,7 +58,7 @@ public class Player : MonoBehaviour {
 
         if (disabled == false)
         {
-            if (Input.GetKeyDown("space"))
+            if (Input.GetKeyDown(KeyCode.C))
             {
                 if (congActivado == false)
                 {
