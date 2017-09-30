@@ -13,7 +13,6 @@ public class Guard : MonoBehaviour {
     public float rotSpeed = 10f;
     public bool Seen = false;
 
-
     public Light spotlight;
     public float viewDistance;
     public LayerMask viewMask;
@@ -55,7 +54,7 @@ public class Guard : MonoBehaviour {
             else
             {
                 playerVisibleTimer -= Time.deltaTime;
-                if(Seen == true)
+            if (Seen == true)
             {
                 transform.Rotate(Vector3.up * rotSpeed * Time.deltaTime);
             }

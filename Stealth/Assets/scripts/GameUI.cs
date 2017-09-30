@@ -45,6 +45,7 @@ public class GameUI : MonoBehaviour {
     void DontShowGameLoseUI()
     {
         OnGameOver2(gameLoseUI);
+        OnGameOver2(gameWinUI);
     }
 
     void OnGameOver(GameObject gameOverUI)
